@@ -4,10 +4,11 @@
   "description": "Frontend test by Jurica",
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev",
+    "start": "concurrently \"npm run frontend\" \"npm run backend\"",
     "dev": "webpack serve --mode development",
     "build": "webpack --mode production",
     "frontend": "npm run build && http-server ./dist -p 3333",
+    "backend": "node backend/main",
     "test": "mocha -r esm"
   },
   "author": "Jurica Starešinčić",
@@ -27,6 +28,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "concurrently": "^5.3.0",
     "http-server": "^0.12.3",
     "mocha": "^8.2.0",
     "util": "^0.12.3",
