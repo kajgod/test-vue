@@ -8,6 +8,12 @@ npm run frontend
 ```
 Starts a server at [PORT 3333][frnt]
 
+### Test validation model
+
+```bash
+npm run test
+```
+
 ### Development server
 
 ```bash

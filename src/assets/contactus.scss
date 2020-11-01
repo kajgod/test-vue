@@ -1,0 +1,136 @@
+@import "./_variables.scss";
+
+article {
+  display: block;
+  width: 80vw;
+  max-width: 750px;
+  padding: 20px;
+  margin: auto;
+  box-sizing: border-box;
+  h1 {
+    margin: 2rem 0;
+    text-align: center;
+  }
+  input[type="text"],
+  textarea {
+    display: block;
+    width: calc(100% - 30px);
+    padding: 10px 15px;
+    font-size: 1rem;
+    line-height: 1.125rem;
+    color: $dark;
+    background-color: transparent;
+    border: 1px solid $dark;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  }
+  textarea {
+    resize: vertical;
+    height: 150px;
+  }
+  label {
+    display: inline-block;
+    margin: 1rem 4px 4px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    &.ok::before {
+      content: "✔";
+      color: $correct;
+      margin-right: 5px;
+    }
+  }
+  input[type="checkbox"] {
+    $size-val: 16;
+    $checkbox-size: #{$size-val}px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    & + label {
+      width: $checkbox-size;
+      height: $checkbox-size;
+      border: solid 1px $dark;
+      cursor: pointer;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      transition: box-shadow 0.4s, background 0.4s;
+      overflow: visible;
+      margin-left: #{- $checkbox-size};
+      span {
+        $left-margin: #{$size-val + 10}px;
+        $ch-width: #{4 * $size-val}px;
+        display: block;
+        margin: calc(#{$size-val - 2}px - 1.125rem) 0 0 $left-margin;
+        width: calc(80vw - #{$ch-width});
+        max-width: calc(750px - #{$ch-width});
+      }
+    }
+    &:checked + label {
+      background-color: $middle;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), inset 0 0 0 2px $white;
+    }
+  }
+
+  .btn {
+    display: block;
+    margin: 20px auto 10px auto;
+    border: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    padding: 0.375rem 3rem;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    outline: none;
+    background-color: #ccc;
+    color: #eee;
+    &.active {
+      cursor: pointer;
+      background-color: $middle;
+      color: $white;
+      outline: none;
+      text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.25);
+      &:hover {
+        background-color: darken($middle, 10%);
+        border-color: darken($middle, 10%);
+        color: $white;
+      }
+      &:active,
+      &:focus {
+        background-color: lighten($middle, 5%);
+        border-color: lighten($middle, 5%);
+      }
+    }
+  }
+  .small {
+    font-size: 0.75rem;
+    text-align: center;
+  }
+  .correct {
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    color: $correct;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    background: $white;
+    border-radius: 5px;
+  }
+  .errors {
+    p {
+      font-weight: 600;
+    }
+  }
+}
+@media only screen and (min-width: 900px) {
+  article {
+    h1 {
+      margin: 1rem 0;
+    }
+    .small {
+      text-align: right;
+    }
+  }
+}
