@@ -27,6 +27,18 @@ module.exports = {
           "sass-loader",
         ],
       },
+      {
+        test: /\.(svg|png|jpe?g|gif|webp)(\?.*)?$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[hash:8].[ext]",
+              esModule: false,
+            },
+          },
+        ],
+      },
     ],
   },
   devServer: {
@@ -40,6 +52,7 @@ module.exports = {
       showErrors: true,
       cache: true,
       template: join(__dirname, "public/index.html"),
+      favicon: join(__dirname, "public/favicon.ico"),
     }),
   ],
 };

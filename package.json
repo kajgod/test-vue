@@ -4,13 +4,16 @@
   "description": "Frontend test by Jurica",
   "main": "index.js",
   "scripts": {
+    "start": "npm run dev",
     "dev": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "frontend": "npm run build && http-server ./dist -p 3333"
   },
   "author": "Jurica Starešinčić",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^5.0.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.4",
@@ -22,6 +25,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "http-server": "^0.12.3",
     "vue": "^2.6.12",
     "vue-router": "^3.4.8"
   }
